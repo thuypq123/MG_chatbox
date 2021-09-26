@@ -13,7 +13,7 @@ const options = {
 };
 async function connect(){
     try {
-        await mongoose.connect(url,options);
+        await mongoose.connect(url);
         console.log('Success Connected');
     } catch (error) {
         console.log(error);
