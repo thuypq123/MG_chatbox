@@ -59,9 +59,20 @@ socket.on('renderData', (data) => {
     span.appendChild(text);
     span.setAttribute('class', 'u1 chat');
     wrapText.appendChild(span);
+    autoScroll();
 })
 //=====================================================
 autoScroll = () => {
     wrapText.scrollTop = wrapText.scrollHeight;
 }
 // autoScroll();
+// typing = () => {
+//     var keyup = document.querySelector("#message");
+//         socket.emit("typing", keyup.value);
+// }
+// socket.on('typer',(data)=>{
+//     var check = document.querySelector(".typing");
+//     var text = createTextNode(data[0].username);
+//     check.appendChild(text);
+//     console.log(data[0].username);
+// })

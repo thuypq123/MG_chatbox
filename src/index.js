@@ -18,6 +18,7 @@ db.connect();
 //==================PROGRAM=====================
 var user_auth = [];
 app.get('/', (req, res, next) => {
+  if(user_auth.length == 0 )
   res.sendFile(__dirname+"/public/login.html");
 })
 app.get('/chat', (req, res, next) => {
@@ -61,6 +62,10 @@ io.on('connection', (socket) => {
         if (err) return handleError(err);
       });
       socket.broadcast.emit('renderData', data.value);
+    });
+    socket.on('typing', (data)=>{
+      console.log(data);
+      socket.emit('typer',user_auth);
     });
 });
 
