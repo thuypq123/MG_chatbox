@@ -10,7 +10,7 @@ async function connect(){
         await mongoose.connect(url,{ useUnifiedTopology: true });
         console.log('Success Connected');
     } catch (error) {
-        console.log("error");
+        console.log(error);
     }
 }
 module.exports ={connect};
