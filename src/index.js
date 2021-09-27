@@ -17,10 +17,40 @@ app.use(express.urlencoded({ extended: true }))
 db.connect();
 //==================PROGRAM=====================
 var user_auth = [];
+
+/*---------------START----------------------*/
 app.get('/', (req, res, next) => {
   if(user_auth.length == 0 )
   res.sendFile(__dirname+"/public/login.html");
 })
+
+/*---------------Singup----------------------*/
+app.get('/singup', (req, res, next) => {
+  if(user_auth.length == 0 )
+  res.sendFile(__dirname+"/public/singup.html");
+})
+
+app.post('/singup', (req, res, next) => {
+  var username = req.body.username;
+  console.log(req.body.username)
+  var password = req.body.pw;
+  user.findOne({"username":username},(err, item) => {
+    if(item == null) // nếu trông thì do chưa có ai tạo tài khoản này
+    {
+        user.create({ "username": username , "pw": password}, function (err, small) {
+            if (err) return handleError(err);
+        });
+      res.sendFile(__dirname+"/public/createSuccess.html");
+      req = null;
+    }
+    else
+    {
+      res.send(`<h1>LOI</h1>`);
+    }
+  })
+})
+
+/*---------------Chat Product------------------*/
 app.get('/chat', (req, res, next) => {
   res.sendFile(__dirname+"/public/login.html");
 })
@@ -39,6 +69,8 @@ app.post('/chat', (req, res) => {
     }
   })
 })
+
+/*---------------APIS----------------------*/
 app.get("/texts", function(req, res)
 {
     text.find({}, function (err, docs) {
@@ -51,6 +83,10 @@ app.get("/users", function(req, res)
     res.json(users);
   })
 })
+
+
+
+//===============SOCKET================
 io.on('connection', (socket) => {
     console.log('a user connected');
     text.find({}, function (err, docs) {

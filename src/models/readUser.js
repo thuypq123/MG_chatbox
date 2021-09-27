@@ -4,7 +4,7 @@ const ObjectId = Schema.ObjectId;
 
 const user = new Schema({
   author: ObjectId,
-  uername: String,
+  username: String,
   pw: String
 });
 
