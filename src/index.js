@@ -45,7 +45,7 @@ app.post('/singup', (req, res, next) => {
     }
     else
     {
-      res.send(`<h1>LOI</h1>`);
+      res.sendFile(__dirname+"/public/faillogin.html");
     }
   })
 })
