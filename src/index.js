@@ -20,7 +20,7 @@ var user_auth = [];
 
 /*---------------START----------------------*/
 app.get('/', (req, res, next) => {
-  if(user_auth.length == 0 )
+//   if(user_auth.length == 0 )
   res.sendFile(__dirname+"/public/login.html");
 })
 
