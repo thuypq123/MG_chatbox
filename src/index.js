@@ -26,7 +26,7 @@ app.get('/', (req, res, next) => {
 
 /*---------------Singup----------------------*/
 app.get('/singup', (req, res, next) => {
-  if(user_auth.length == 0 )
+//   if(user_auth.length == 0 )
   res.sendFile(__dirname+"/public/singup.html");
 })
 
