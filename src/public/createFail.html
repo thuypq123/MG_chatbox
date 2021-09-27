@@ -55,7 +55,9 @@ button:hover {
 .cancelbtn, .signupbtn {
   float: left;
   width: 50%;
+  height: 46px;
   text-align: center;
+  margin: auto;
 }
 
 /* Add padding to container elements */
@@ -68,6 +70,13 @@ button:hover {
   content: "";
   clear: both;
   display: table;
+}
+form{
+  max-width: 500px;
+  margin: auto;
+}
+body{
+  text-align:center;
 }
 
 /* Change styles for cancel button and signup button on extra small screens */
@@ -98,11 +107,9 @@ button:hover {
       <button type="submit" class="signupbtn">Sign Up</button>
     </div>
   </div>
-  <div class="w3-panel w3-green">
     <div class="w3-panel w3-red">
-        <h3>Danger!</h3>
-        <p>Red often indicates a dangerous or negative situation.</p>
-    </div>
+        <h3>Username has been used</h3>
+        <p>Please login.</p>
 </form>
 
 </body>

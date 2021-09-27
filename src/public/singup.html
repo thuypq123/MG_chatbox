@@ -54,12 +54,16 @@ button:hover {
 .cancelbtn, .signupbtn {
   float: left;
   width: 50%;
+  height: 46px;
   text-align: center;
+  margin: auto;
 }
 
 /* Add padding to container elements */
 .container {
   padding: 16px;
+  max-width: 480px;
+  text-align: center;
 }
 
 /* Clear floats */
@@ -67,6 +71,13 @@ button:hover {
   content: "";
   clear: both;
   display: table;
+}
+form{
+  max-width: 500px;
+  margin: auto;
+}
+body{
+  text-align:center;
 }
 
 /* Change styles for cancel button and signup button on extra small screens */
@@ -78,7 +89,6 @@ button:hover {
 </style>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <body>
-
 <form action="/singup" style="border:1px solid #ccc" method="post">
   <div class="container">
     <h1>Sign Up</h1>
@@ -98,6 +108,5 @@ button:hover {
     </div>
   </div>
 </form>
-
 </body>
 </html>
