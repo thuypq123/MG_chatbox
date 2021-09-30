@@ -37,7 +37,7 @@ socket.on('renderListText',(res)=>{
 })
 sendData = () => {
     var value = sendValue.value;
-    if(value == "")
+    if(/^\s+$/.test(value))
     {
         return;
     }
@@ -59,11 +59,26 @@ socket.on('renderData', (data) => {
     span.appendChild(text);
     span.setAttribute('class', 'u1 chat');
     wrapText.appendChild(span);
+    playNotification();
     autoScroll();
 })
 //=====================================================
 autoScroll = () => {
     wrapText.scrollTop = wrapText.scrollHeight;
+}
+var input = document.getElementById("message");
+input.addEventListener("keyup", function(event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+      // Cancel the default action, if needed
+      event.preventDefault();
+      // Trigger the button element with a click
+      document.getElementById("send").click();
+    }
+  });
+playNotification = () =>{
+    var x = document.getElementById("myAudio"); 
+    x.play();
 }
 // autoScroll();
 // typing = () => {
