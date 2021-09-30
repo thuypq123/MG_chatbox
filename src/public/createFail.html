@@ -63,6 +63,7 @@ button:hover {
 /* Add padding to container elements */
 .container {
   padding: 16px;
+  text-align: center;
 }
 
 /* Clear floats */
@@ -71,13 +72,7 @@ button:hover {
   clear: both;
   display: table;
 }
-form{
-  max-width: 500px;
-  margin: auto;
-}
-body{
-  text-align:center;
-}
+
 
 /* Change styles for cancel button and signup button on extra small screens */
 @media screen and (max-width: 300px) {
@@ -87,6 +82,7 @@ body{
 }
 </style>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="access/notification.css">
 <body>
 
 <form action="/singup" style="border:1px solid #ccc" method="post">
@@ -96,8 +92,10 @@ body{
     <hr>
 
     <label for="email"><b>New Username</b></label>
-    <input type="text" placeholder="Enter username" name="username" required>
+    <input type="text" placeholder="Enter username" name="username" required id="username">
+    <div id="noti">
 
+    </div>
     <label for="psw"><b>New Password</b></label>
     <input type="password" placeholder="Enter Password" name="pw" required>
     
@@ -108,9 +106,9 @@ body{
     </div>
   </div>
     <div class="w3-panel w3-red">
-        <h3>Username has been used</h3>
+        <h3 class = "text">Username has been used</h3>
         <p>Please login.</p>
 </form>
-
+<script src="access/singup.js"></script>
 </body>
 </html>
